@@ -1,8 +1,7 @@
 package cristianorocchi.u5s5d4.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,11 +11,15 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class Topping {
+    @Id
     @Setter(AccessLevel.NONE)
     private long id;
     private String nome;
     private int calorie;
     private double prezzo;
+    @ManyToOne
+    @JoinColumn(name = "pizza_id")
+    private Pizza pizza;
 
     public Topping(long id, String nome, int calorie, double prezzo) {
         this.id = id;

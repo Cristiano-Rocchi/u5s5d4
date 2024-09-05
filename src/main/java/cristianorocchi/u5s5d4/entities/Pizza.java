@@ -1,7 +1,6 @@
 package cristianorocchi.u5s5d4.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -13,10 +12,12 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class Pizza {
+    @Id
     @Setter(AccessLevel.NONE)
     private long id;
     private String nome;
     private List<String> ingredientiBase;
+    @OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL)
     private List<Topping> toppings;
     private int calorie;
     private double prezzo;

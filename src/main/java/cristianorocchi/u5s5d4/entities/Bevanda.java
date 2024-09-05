@@ -1,6 +1,7 @@
 package cristianorocchi.u5s5d4.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class Bevanda {
+    @Id
     @Setter(AccessLevel.NONE)
     private long id;
     private String nome;
